@@ -1,0 +1,131 @@
+/* 1. Ajustes Globales y Fondo */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    
+    /* Configuración de imagen optimizada */
+    background-image: url("fondo.png"); 
+    background-size: cover;           
+    background-position: center;      /* Centrado total para evitar cortes */
+    background-repeat: no-repeat;
+    background-attachment: fixed;     
+
+    width: 100%;
+    min-height: 100vh;                
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;               /* Evita scroll horizontal accidental */
+}
+
+/* 2. Navegación Adaptable */
+nav {
+    display: flex;
+    justify-content: center;
+    background-color: #444444c6;
+    width: 90%;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;                 /* Permite que los botones bajen si no caben */
+    justify-content: center;
+}
+
+nav ul li a {
+    color: white;
+    padding: 15px 20px;
+    display: block;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+/* 3. Contenido Principal */
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box;          /* Incluye el padding en el ancho total */
+}
+
+.welcome-container {
+    background: rgba(255, 255, 255, 0.95);
+    width: 100%;                     /* Ocupa el ancho disponible */
+    max-width: 450px;                /* Pero no más de 450px */
+    margin: 20px auto;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    text-align: center;
+    box-sizing: border-box;
+}
+
+/* Corrección de h2: position: center no existe, se usa text-align */
+.welcome-container h2 {
+    color: #333;
+    text-align: center; 
+    margin-bottom: 10px;
+}
+
+/* 4. Footer Responsivo */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 30px 0;
+    width: 100%;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;                 /* Para que las columnas se apilen en móvil */
+    justify-content: space-around;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-column {
+    flex: 1;
+    min-width: 250px;                /* Fuerza el salto de línea en pantallas pequeñas */
+    padding: 15px;
+}
+
+/* 5. MEDIA QUERIES (Para Celulares) */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;      /* Menú en lista vertical */
+        width: 100%;
+    }
+    
+    nav ul li {
+        text-align: center;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .welcome-container {
+        width: 90%;                  /* Un poco más de margen en los lados */
+        padding: 15px;
+    }
+
+    .footer-container {
+        flex-direction: column;
+    }
+}
+
+/* Clases de utilidad y botones */
+.bold { font-weight: bold; }
+
+#appsButton, #logoutButton {
+    background-color: rgba(255, 255, 255, 0.7);
+    border: none;
+    padding: 10px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
